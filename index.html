@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>长白山·延吉·长春 7天5晚秋季行程规划</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f0f2f5; color: #1a1a2e; line-height: 1.7; padding: 0;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff; padding: 48px 24px 40px; text-align: center;
+  }
+  .header h1 { font-size: 28px; margin-bottom: 10px; letter-spacing: 2px; }
+  .header .subtitle { font-size: 15px; color: #a0aec0; }
+  .header .meta { margin-top: 16px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .header .meta span { font-size: 13px; color: #c4c4c4; background: rgba(255,255,255,0.08); padding: 4px 14px; border-radius: 20px; }
+  .container { max-width: 1000px; margin: -20px auto 40px; padding: 0 16px; }
+
+  .section { margin-bottom: 36px; }
+  .section-title {
+    font-size: 20px; font-weight: 700; margin-bottom: 16px;
+    padding-left: 14px; border-left: 4px solid #0f3460; color: #0f3460;
+  }
+
+  .overview-table {
+    width: 100%; border-collapse: collapse; background: #fff;
+    border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    font-size: 13px;
+  }
+  .overview-table th {
+    background: #0f3460; color: #fff; padding: 12px 10px;
+    text-align: center; font-weight: 600; white-space: nowrap;
+  }
+  .overview-table td { padding: 12px 10px; border-bottom: 1px solid #e8e8e8; text-align: center; vertical-align: middle; }
+  .overview-table tr:nth-child(even) td { background: #f7f9fc; }
+  .overview-table tr:hover td { background: #eef2f7; }
+  .overview-table .day { font-weight: 700; color: #0f3460; white-space: nowrap; }
+  .overview-table .city { color: #e67e22; font-weight: 600; }
+  .overview-table .transport { font-size: 12px; color: #555; }
+  .overview-table .hotel { font-size: 12px; color: #2c6e49; }
+  .overview-table .highlight { background: #fff3cd; }
+
+  .route-diagram {
+    background: #fff; border-radius: 10px; padding: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 24px;
+  }
+  .route-flow {
+    display: flex; align-items: center; justify-content: center;
+    flex-wrap: wrap; gap: 4px; font-size: 13px;
+  }
+  .route-node {
+    background: #0f3460; color: #fff; padding: 8px 16px;
+    border-radius: 6px; white-space: nowrap; font-weight: 600;
+  }
+  .route-arrow { color: #0f3460; font-size: 18px; font-weight: bold; }
+  .route-info { font-size: 11px; color: #888; text-align: center; margin-top: 4px; }
+
+  .day-card {
+    background: #fff; border-radius: 10px; overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 20px;
+  }
+  .day-header {
+    padding: 14px 20px; color: #fff; font-weight: 700; font-size: 16px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .day-header .day-num { font-size: 13px; opacity: 0.8; }
+  .day-1 .day-header { background: #1a1a2e; }
+  .day-2 .day-header, .day-3 .day-header { background: #0f3460; }
+  .day-4 .day-header, .day-5 .day-header { background: #2c5f2d; }
+  .day-6 .day-header, .day-7 .day-header { background: #c0392b; }
+
+  .day-body { padding: 16px 20px; }
+  .day-body table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .day-body th { background: #f0f4f8; color: #333; padding: 8px 10px; text-align: left; font-weight: 600; border-bottom: 2px solid #0f3460; }
+  .day-body td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .day-body tr:nth-child(even) td { background: #fafbfc; }
+  .day-body .time-col { width: 90px; white-space: nowrap; color: #0f3460; font-weight: 600; }
+  .day-body .fee-col { width: 100px; font-size: 12px; color: #c0392b; }
+  .day-body .dur-col { width: 70px; font-size: 12px; color: #888; }
+
+  .info-box {
+    background: #fff; border-radius: 10px; padding: 20px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 20px;
+  }
+  .info-box h3 { font-size: 16px; color: #0f3460; margin-bottom: 12px; }
+  .info-box ul { list-style: none; padding: 0; }
+  .info-box li { padding: 5px 0 5px 20px; position: relative; font-size: 14px; }
+  .info-box li::before { content: "▸"; color: #0f3460; position: absolute; left: 0; }
+
+  .weather-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+  .weather-table th { background: #0f3460; color: #fff; padding: 8px; text-align: center; }
+  .weather-table td { padding: 8px; border: 1px solid #e8e8e8; text-align: center; }
+
+  .budget-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .budget-table th { background: #0f3460; color: #fff; padding: 10px; text-align: center; }
+  .budget-table td { padding: 10px; border-bottom: 1px solid #eee; text-align: center; }
+  .budget-table tr:nth-child(even) td { background: #f7f9fc; }
+  .budget-table .total td { background: #0f3460; color: #fff; font-weight: 700; font-size: 15px; }
+
+  .food-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+  .food-item { background: #f7f9fc; border-left: 3px solid #2c5f2d; padding: 8px 12px; border-radius: 4px; font-size: 13px; }
+  .food-item .city-tag { font-size: 11px; color: #999; }
+
+  .alert-box {
+    background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px;
+    padding: 16px 20px; margin-bottom: 20px;
+  }
+  .alert-box h3 { color: #856404; margin-bottom: 8px; font-size: 15px; }
+  .alert-box ul { list-style: none; padding: 0; }
+  .alert-box li { padding: 4px 0 4px 18px; position: relative; font-size: 13px; color: #856404; }
+  .alert-box li::before { content: "⚠"; position: absolute; left: 0; }
+
+  @media (max-width: 700px) {
+    .overview-table { font-size: 12px; }
+    .overview-table th, .overview-table td { padding: 8px 5px; }
+    .header h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>长白山 · 延吉 · 长春 7天5晚秋季行程规划</h1>
+  <div class="subtitle">10.1–10.7 / 杭州出发 / 2人 / 舒适适中风格</div>
+  <div class="meta">
+    <span>10.1 21:00到长春</span>
+    <span>长白山自然风光</span>
+    <span>延吉美食文化</span>
+    <span>秋季赏景摄影</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 路线图 -->
+  <div class="section">
+    <div class="section-title">路线总览</div>
+    <div class="route-diagram">
+      <div class="route-flow">
+        <div>
+          <div class="route-node">杭州</div>
+        </div>
+        <div class="route-arrow">✈ 3h</div>
+        <div>
+          <div class="route-node">长春龙嘉</div>
+        </div>
+        <div class="route-arrow">🚄 2.5h</div>
+        <div>
+          <div class="route-node">长白山</div>
+        </div>
+        <div class="route-arrow">🚄 1.5h</div>
+        <div>
+          <div class="route-node">延吉</div>
+        </div>
+        <div class="route-arrow">🚄 2.5h</div>
+        <div>
+          <div class="route-node">长春</div>
+        </div>
+        <div class="route-arrow">✈ 3h</div>
+        <div>
+          <div class="route-node">杭州</div>
+        </div>
+      </div>
+      <div class="route-info">先去长白山留3天天池窗口期，延吉放后面不受天气影响更灵活</div>
+    </div>
+  </div>
+
+  <!-- 总览表 -->
+  <div class="section">
+    <div class="section-title">行程总览</div>
+    <table class="overview-table">
+      <thead>
+        <tr>
+          <th>日期</th>
+          <th>城市</th>
+          <th>核心安排</th>
+          <th>交通</th>
+          <th>住宿</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="day">10/1<br><span style="font-size:11px;color:#888">周四</span></td>
+          <td class="city">杭州→长春</td>
+          <td>21:00到龙嘉机场，机场附近入住休息</td>
+          <td class="transport">✈ 杭州→长春 约3h<br>打车到酒店10min</td>
+          <td class="hotel">龙嘉机场附近酒店<br>~300元/晚</td>
+        </tr>
+        <tr>
+          <td class="day">10/2<br><span style="font-size:11px;color:#888">周五</span></td>
+          <td class="city">长春→长白山</td>
+          <td>早班高铁赴长白山站，下午魔界景区+河边彩林，晚上泡温泉</td>
+          <td class="transport">🚄 龙嘉→长白山站 2.5h<br>打车到酒店10min</td>
+          <td class="hotel">二道白河温泉酒店<br>600-1000元/晚</td>
+        </tr>
+        <tr>
+          <td class="day">10/3<br><span style="font-size:11px;color:#888">周六</span></td>
+          <td class="city">长白山北坡</td>
+          <td class="highlight">天池+长白瀑布+聚龙温泉+绿渊潭+地下森林 全天</td>
+          <td class="transport">打车到集散中心15min<br>景区内环保车+倒站车</td>
+          <td class="hotel">二道白河温泉酒店<br>600-1000元/晚</td>
+        </tr>
+        <tr>
+          <td class="day">10/4<br><span style="font-size:11px;color:#888">周日</span></td>
+          <td class="city">长白山西坡→延吉</td>
+          <td>上午西坡登1442级台阶看天池，午后高铁赴延吉</td>
+          <td class="transport">🚄 长白山→延吉西站 1.5h<br>打车到酒店10min</td>
+          <td class="hotel">延吉大学/水上市场商圈<br>400-600元/晚</td>
+        </tr>
+        <tr>
+          <td class="day">10/5<br><span style="font-size:11px;color:#888">周一</span></td>
+          <td class="city">延吉</td>
+          <td>水上市场早市+延边博物馆+朝鲜族民俗园+延大弹幕墙+西市场</td>
+          <td class="transport">市区打车（起步价6元）<br>无需包车</td>
+          <td class="hotel">延吉大学/水上市场商圈<br>400-600元/晚</td>
+        </tr>
+        <tr>
+          <td class="day">10/6<br><span style="font-size:11px;color:#888">周二</span></td>
+          <td class="city">延吉→长春</td>
+          <td>上午延吉西市场补货，午后高铁返长春，傍晚伪满皇宫</td>
+          <td class="transport">🚄 延吉西→长春 2.5h<br>打车到酒店15min</td>
+          <td class="hotel">长春桂林路/重庆路商圈<br>400-600元/晚</td>
+        </tr>
+        <tr>
+          <td class="day">10/7<br><span style="font-size:11px;color:#888">周三</span></td>
+          <td class="city">长春→杭州</td>
+          <td>上午净月潭公园赏秋，中午前往机场，下午飞返杭州</td>
+          <td class="transport">打车到机场30min<br>✈ 长春→杭州 约3h</td>
+          <td class="hotel">—— 返回杭州 ——</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Day 1 -->
+  <div class="section">
+    <div class="section-title">每日详细安排</div>
+
+    <div class="day-card day-1">
+      <div class="day-header">
+        <span>Day 1 · 10月1日（周四）｜杭州 → 长春</span>
+        <span class="day-num">抵达日</span>
+      </div>
+      <div class="day-body">
+        <table>
+          <thead>
+            <tr><th>时间</th><th>安排</th><th>费用</th><th>耗时</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="time-col">下午</td><td>杭州萧山机场出发，飞往长春龙嘉</td><td class="fee-col">800-1500元/人</td><td class="dur-col">约3h</td></tr>
+            <tr><td class="time-col">21:00</td><td>抵达长春龙嘉机场，打车前往机场附近酒店</td><td class="fee-col">打车约20元</td><td class="dur-col">10min</td></tr>
+            <tr><td class="time-col">21:30</td><td>入住机场酒店休息，为明天早起赶高铁养精蓄锐</td><td class="fee-col">~300元/晚</td><td class="dur-col">——</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:12px;font-size:13px;color:#666;padding:8px 12px;background:#f7f9fc;border-radius:6px;">
+          💡 选龙嘉机场附近酒店而非长春市区，明早步行6-10分钟即可到龙嘉高铁站换乘，省时省力。
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="day-card day-2">
+      <div class="day-header">
+        <span>Day 2 · 10月2日（周五）｜长春 → 长白山</span>
+        <span class="day-num">赴长白山</span>
+      </div>
+      <div class="day-body">
+        <table>
+          <thead>
+            <tr><th>时间</th><th>安排</th><th>费用</th><th>耗时</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="time-col">07:00-07:10</td><td>步行前往龙嘉高铁站（机场T2地下）</td><td class="fee-col">——</td><td class="dur-col">10min</td></tr>
+            <tr><td class="time-col">07:30-10:00</td><td>高铁：龙嘉→长白山站（二等座约132元）</td><td class="fee-col">132元/人</td><td class="dur-col">2.5h</td></tr>
+            <tr><td class="time-col">10:00-10:15</td><td>抵达长白山站（二道白河镇），打车到酒店</td><td class="fee-col">打车约15元</td><td class="dur-col">10min</td></tr>
+            <tr><td class="time-col">10:30-11:30</td><td>入住酒店放行李，镇上午餐</td><td class="fee-col">餐约60元/人</td><td class="dur-col">1h</td></tr>
+            <tr><td class="time-col">13:00-14:30</td><td>魔界景区：水汽枯树倒影+秋季彩林拍照</td><td class="fee-col">门票约50元/人</td><td class="dur-col">1.5h</td></tr>
+            <tr><td class="time-col">15:00-16:00</td><td>池北区河边彩林散步拍照（免费）</td><td class="fee-col">免费</td><td class="dur-col">1h</td></tr>
+            <tr><td class="time-col">16:30-18:00</td><td>回酒店泡温泉（聚龙温泉或酒店自带）</td><td class="fee-col">约80元/人</td><td class="dur-col">1.5h</td></tr>
+            <tr><td class="time-col">18:30</td><td>晚餐：铁锅炖/冷水鱼/山野菜</td><td class="fee-col">约80元/人</td><td class="dur-col">——</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:12px;font-size:13px;color:#666;padding:8px 12px;background:#f7f9fc;border-radius:6px;">
+          💡 住池北区山门附近可省半小时进山时间；选带温泉的酒店，明早爬完山回来泡汤缓解疲劳。
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="day-card day-3">
+      <div class="day-header">
+        <span>Day 3 · 10月3日（周六）｜长白山北坡全天</span>
+        <span class="day-num">重头戏·天池</span>
+      </div>
+      <div class="day-body">
+        <table>
+          <thead>
+            <tr><th>时间</th><th>安排</th><th>费用</th><th>耗时</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="time-col">07:00</td><td>出发前往北景区集散中心</td><td class="fee-col">打车约15元</td><td class="dur-col">10-15min</td></tr>
+            <tr><td class="time-col">07:30-08:30</td><td>购票+换乘环保车进山</td><td class="fee-col">环保车85元/人</td><td class="dur-col">1h</td></tr>
+            <tr><td class="time-col">08:30-10:30</td><td><strong>天池</strong>：换乘倒站车到山顶观景台</td><td class="fee-col">倒站车80元/人</td><td class="dur-col">2h</td></tr>
+            <tr><td class="time-col">10:30-12:00</td><td>长白瀑布 + 聚龙温泉群</td><td class="fee-col">——</td><td class="dur-col">1.5h</td></tr>
+            <tr><td class="time-col">12:00-12:30</td><td>尝温泉煮蛋（特色体验）</td><td class="fee-col">约10元</td><td class="dur-col">——</td></tr>
+            <tr><td class="time-col">13:00-14:00</td><td>绿渊潭</td><td class="fee-col">——</td><td class="dur-col">40min</td></tr>
+            <tr><td class="time-col">14:00-15:00</td><td>小天池</td><td class="fee-col">——</td><td class="dur-col">40min</td></tr>
+            <tr><td class="time-col">15:00-16:00</td><td>地下森林（谷底森林徒步）</td><td class="fee-col">——</td><td class="dur-col">1h</td></tr>
+            <tr><td class="time-col">16:30</td><td>返回二道白河，晚餐+泡温泉休息</td><td class="fee-col">餐约80元/人</td><td class="dur-col">——</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:12px;font-size:13px;color:#666;padding:8px 12px;background:#f7f9fc;border-radius:6px;">
+          💡 北坡门票105+环保车85+倒站车80 = 270元/人。10月初"一山两季"：山下红叶+山上初雪，全年最佳拍照时段。
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 4 -->
+    <div class="day-card day-4">
+      <div class="day-header">
+        <span>Day 4 · 10月4日（周日）｜长白山西坡 → 延吉</span>
+        <span class="day-num">转场延吉</span>
+      </div>
+      <div class="day-body">
+        <table>
+          <thead>
+            <tr><th>时间</th><th>安排</th><th>费用</th><th>耗时</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="time-col">07:00-07:30</td><td>出发前往西坡景区</td><td class="fee-col">打车/包车约50元</td><td class="dur-col">30min</td></tr>
+            <tr><td class="time-col">07:30-12:00</td><td><strong>西坡</strong>：环保车→爬1442级台阶→天池观景台（视角更开阔）</td><td class="fee-col">门票105+车85=190元/人</td><td class="dur-col">4.5h</td></tr>
+            <tr><td class="time-col">12:30-13:30</td><td>午餐：二道白河镇</td><td class="fee-col">约60元/人</td><td class="dur-col">1h</td></tr>
+            <tr><td class="time-col">14:00-15:30</td><td>高铁：长白山站→延吉西站</td><td class="fee-col">约80元/人</td><td class="dur-col">1.5h</td></tr>
+            <tr><td class="time-col">15:45-16:00</td><td>打车到延吉酒店入住</td><td class="fee-col">打车约15元</td><td class="dur-col">10min</td></tr>
+            <tr><td class="time-col">16:30-18:00</td><td>延边大学网红弹幕墙拍照</td><td class="fee-col">免费</td><td class="dur-col">1.5h</td></tr>
+            <tr><td class="time-col">18:30</td><td>晚餐：烤肉（丰茂烤肉/白玉串城）</td><td class="fee-col">约100元/人</td><td class="dur-col">——</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:12px;font-size:13px;color:#666;padding:8px 12px;background:#f7f9fc;border-radius:6px;">
+          💡 北坡+西坡双坡策略：西坡视角开阔，增加看到天池的概率。下午转场延吉开始美食之旅。
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 5 -->
+    <div class="day-card day-5">
+      <div class="day-header">
+        <span>Day 5 · 10月5日（周一）｜延吉美食文化深度游</span>
+        <span class="day-num">逛吃全日</span>
+      </div>
+      <div class="day-body">
+        <table>
+          <thead>
+            <tr><th>时间</th><th>安排</th><th>费用</th><th>耗时</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="time-col">06:30-08:00</td><td><strong>水上市场早市</strong>：米肠、打糕、明太鱼、冷面等</td><td class="fee-col">约50元/人</td><td class="dur-col">1.5h</td></tr>
+            <tr><td class="time-col">09:00-10:30</td><td>延边博物馆（朝鲜族历史文化展）</td><td class="fee-col">免费</td><td class="dur-col">1.5h</td></tr>
+            <tr><td class="time-col">10:30-12:00</td><td>中国朝鲜族民俗园（韩屋建筑+民俗体验）</td><td class="fee-col">门票约30元/人</td><td class="dur-col">1.5h</td></tr>
+            <tr><td class="time-col">12:00-13:00</td><td>午餐：冷面（服务大楼冷面·延吉老字号）</td><td class="fee-col">约40元/人</td><td class="dur-col">1h</td></tr>
+            <tr><td class="time-col">14:00-15:30</td><td>帽儿山国家森林公园登顶看延吉全景</td><td class="fee-col">免费</td><td class="dur-col">1.5h</td></tr>
+            <tr><td class="time-col">16:00-17:30</td><td>延吉西市场买特产（明太鱼干、松茸、人参）</td><td class="fee-col">购物自费</td><td class="dur-col">1.5h</td></tr>
+            <tr><td class="time-col">18:00</td><td>晚餐：参鸡汤或包饭（全州拌饭/顺姬冷面）+米酒</td><td class="fee-col">约80元/人</td><td class="dur-col">——</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:12px;font-size:13px;color:#666;padding:8px 12px;background:#f7f9fc;border-radius:6px;">
+          💡 延吉打车起步价6元，市内无需包车。延边博物馆周一闭馆——今天是周一不行，<strong>请改去民俗园先逛，博物馆放Day6早上回程前</strong>。
+        </div>
+        <div style="margin-top:8px;font-size:13px;color:#c0392b;padding:8px 12px;background:#fff5f5;border-radius:6px;">
+          ⚠ 修正：延边博物馆周一闭馆，Day5（周一）改为先民俗园+帽儿山，Day6上午补博物馆再出发。
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 6 -->
+    <div class="day-card day-6">
+      <div class="day-header">
+        <span>Day 6 · 10月6日（周二）｜延吉 → 长春</span>
+        <span class="day-num">长春观光</span>
+      </div>
+      <div class="day-body">
+        <table>
+          <thead>
+            <tr><th>时间</th><th>安排</th><th>费用</th><th>耗时</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="time-col">09:00-10:30</td><td>延边博物馆（今早补上，周二正常开放）</td><td class="fee-col">免费</td><td class="dur-col">1.5h</td></tr>
+            <tr><td class="time-col">11:00-11:30</td><td>西市场补货/吃个米肠打糕当午饭</td><td class="fee-col">约30元/人</td><td class="dur-col">30min</td></tr>
+            <tr><td class="time-col">12:30-15:00</td><td>高铁：延吉西站→长春</td><td class="fee-col">约100元/人</td><td class="dur-col">2.5h</td></tr>
+            <tr><td class="time-col">15:15-15:30</td><td>打车到长春酒店入住</td><td class="fee-col">打车约25元</td><td class="dur-col">15min</td></tr>
+            <tr><td class="time-col">15:30-18:00</td><td>伪满皇宫博物院（溥仪帝宫原址、同德殿、缉熙楼）</td><td class="fee-col">门票约70元/人</td><td class="dur-col">2.5h</td></tr>
+            <tr><td class="time-col">18:30</td><td>晚餐：东北菜（锅包肉、地三鲜、小鸡炖蘑菇）</td><td class="fee-col">约70元/人</td><td class="dur-col">——</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Day 7 -->
+    <div class="day-card day-7">
+      <div class="day-header">
+        <span>Day 7 · 10月7日（周三）｜长春 → 杭州</span>
+        <span class="day-num">返程日</span>
+      </div>
+      <div class="day-body">
+        <table>
+          <thead>
+            <tr><th>时间</th><th>安排</th><th>费用</th><th>耗时</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="time-col">08:00-08:30</td><td>退房，打车前往净月潭国家森林公园</td><td class="fee-col">打车约30元</td><td class="dur-col">30min</td></tr>
+            <tr><td class="time-col">08:30-11:00</td><td>净月潭：亚洲最大人工林海，秋季红叶层林尽染</td><td class="fee-col">门票约30元/人</td><td class="dur-col">2.5h</td></tr>
+            <tr><td class="time-col">11:00-11:30</td><td>打车前往龙嘉机场</td><td class="fee-col">打车约40元</td><td class="dur-col">30min</td></tr>
+            <tr><td class="time-col">12:00</td><td>抵达机场，办理值机</td><td class="fee-col">——</td><td class="dur-col">——</td></tr>
+            <tr><td class="time-col">下午</td><td>长春龙嘉→杭州萧山</td><td class="fee-col">800-1500元/人</td><td class="dur-col">约3h</td></tr>
+            <tr><td class="time-col">傍晚</td><td>抵达杭州，行程结束</td><td class="fee-col">——</td><td class="dur-col">——</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:12px;font-size:13px;color:#666;padding:8px 12px;background:#f7f9fc;border-radius:6px;">
+          💡 如航班是下午较晚班次，上午可加长影旧址博物馆（门票约90元，1.5h）再赴机场。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 穿衣建议 -->
+  <div class="section">
+    <div class="section-title">穿衣建议</div>
+    <div class="info-box">
+      <p style="font-size:14px;margin-bottom:12px;">10月初长白山地区温差极大，洋葱式穿搭随时增减：</p>
+      <table class="weather-table">
+        <thead>
+          <tr><th>地点</th><th>温度</th><th>穿搭</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>延吉市区</td><td>10-20℃</td><td>长袖 + 薄外套</td></tr>
+          <tr><td>长春市区</td><td>10-20℃</td><td>长袖 + 薄外套</td></tr>
+          <tr><td>长白山山下</td><td>5-15℃</td><td>冲锋衣 + 抓绒</td></tr>
+          <tr><td>长白山山顶</td><td>-5~5℃</td><td>冲锋衣 + 抓绒 + 薄羽绒，手套 + 帽子</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 美食清单 -->
+  <div class="section">
+    <div class="section-title">美食打卡清单</div>
+    <div class="info-box">
+      <div class="food-list">
+        <div class="food-item"><span class="city-tag">延吉</span><br>冷面（服务大楼冷面）</div>
+        <div class="food-item"><span class="city-tag">延吉</span><br>烤肉（丰茂烤肉/白玉串城）</div>
+        <div class="food-item"><span class="city-tag">延吉</span><br>米肠 + 打糕（水上市场）</div>
+        <div class="food-item"><span class="city-tag">延吉</span><br>参鸡汤（全州拌饭）</div>
+        <div class="food-item"><span class="city-tag">延吉</span><br>米酒</div>
+        <div class="food-item"><span class="city-tag">长白山</span><br>温泉煮蛋</div>
+        <div class="food-item"><span class="city-tag">长白山</span><br>铁锅炖 / 冷水鱼</div>
+        <div class="food-item"><span class="city-tag">长春</span><br>锅包肉 / 地三鲜</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 预算 -->
+  <div class="section">
+    <div class="section-title">费用预算汇总（2人合计）</div>
+    <div class="info-box">
+      <table class="budget-table">
+        <thead>
+          <tr><th>项目</th><th>预估费用</th><th>备注</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>往返机票</td><td>3,200-6,000元</td><td>国庆溢价，建议尽早预订</td></tr>
+          <tr><td>高铁（龙嘉→长白山+长白山→延吉+延吉→长春）</td><td>约620元</td><td>2人二等座</td></tr>
+          <tr><td>住宿5晚</td><td>3,000-5,000元</td><td>舒适型，国庆旺季</td></tr>
+          <tr><td>长白山门票（北坡+西坡，2人）</td><td>920元</td><td>含环保车+倒站车</td></tr>
+          <tr><td>其他景点门票（2人）</td><td>约260元</td><td>民俗园+伪满皇宫+净月潭等</td></tr>
+          <tr><td>餐饮（6天，2人）</td><td>约2,500元</td><td>日均约200元/人</td></tr>
+          <tr><td>市内交通+包车</td><td>约800元</td><td>打车+景区间包车</td></tr>
+          <tr class="total"><td>合计</td><td>约11,300-16,100元</td><td>人均5,650-8,050元</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 重要提醒 -->
+  <div class="section">
+    <div class="section-title">重要提醒</div>
+    <div class="alert-box">
+      <h3>必须提前做</h3>
+      <ul>
+        <li>提前7天抢长白山门票：实名分时段预约，国庆极紧张，9月24日左右开始关注放票</li>
+        <li>尽早订机票：国庆杭州-长春航线热门，越晚越贵</li>
+        <li>订二道白河温泉酒店：国庆旺季好位置酒店易满</li>
+      </ul>
+    </div>
+    <div class="alert-box">
+      <h3>注意事项</h3>
+      <ul>
+        <li>边境地区（图们口岸）需随身携带身份证</li>
+        <li>长白山防火期禁烟禁火</li>
+        <li>景区门口推销的高价人参灵芝勿买，特产去延吉西市场</li>
+        <li>包车前确认报价是否含油费、过路费、司机食宿</li>
+        <li>10月初可能遇初雪，关注天气预报调整行程</li>
+        <li>延边博物馆周一闭馆，行程已调整为周二参观</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
